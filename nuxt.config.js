@@ -26,7 +26,10 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['~/assets/css/main.css'],
+  css: [
+    '~/assets/css/main.css',
+    '~/node_modules/bootstrap/dist/css/bootstrap.css'
+  ],
   /*
   ** Add proxy
   */

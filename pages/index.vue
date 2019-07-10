@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section>
     <h1 class="title">
       USERS
     </h1>

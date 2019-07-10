@@ -1,0 +1,36 @@
+html, body {
+	margin: 0;
+  padding: 0;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat-Regular.woff2') format('woff2'), url('/assets/fonts/Montserrat-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MontserratMedium';
+    src: url('/assets/fonts/Montserrat-Medium.woff2') format('woff2'), url('/assets/fonts/Montserrat-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MontserratSemiBold';
+    src: url('/assets/fonts/Montserrat-SemiBold.woff2') format('woff2'), url('/assets/fonts/Montserrat-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MontserratBold';
+    src: url('/assets/fonts/Montserrat-Bold.woff2') format('woff2'), url('/assets/fonts/Montserrat-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/assets/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2') format('woff2');
+}
