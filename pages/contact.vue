@@ -1,6 +1,6 @@
 <template lang="pug">
   #contact
-    #map.contact__map
+    #map.contact__map карта хуярта
     .contact__data
       .container
         p.number.lptracker_phone +7 (499) 391-22-21
@@ -41,14 +41,17 @@
 </template>
 
 <script>
+// import $ from 'jquery'
 export default {
-  data () {
-
+  mounted () {
+    var script = document.createElement('script')
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCt8zCnAdWM57-hf6vndvzWZ0UKDPc2yxE&callback=initMap'
+    document.body.appendChild(script)
   }
 }
 </script>
 
-<style lang="scss">
+<style lang='scss'>
 #contact {
   min-height: 100%;
   display: grid;
