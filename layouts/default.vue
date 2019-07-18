@@ -602,9 +602,10 @@ header {
   grid-template-areas: "toggleMenu header" "nav main";
   overflow: hidden;
   background: #999999;
-  @media (max-width: 500px) {
+  @media (max-width: 1200px) {
     grid-template-columns: 1fr;
-    grid-template-areas: "toggleMenu header" "main";
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: "toggleMenu header" "main main";
   }
 }
 #toggleMenu {
@@ -739,5 +740,8 @@ main {
 nav {
   grid-area: nav;
   background: white;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 }
 </style>
