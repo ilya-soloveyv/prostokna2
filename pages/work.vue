@@ -265,42 +265,40 @@ export default {
       // e.preventDefault()
     })
     if ($(window).width() <= '992') {
+      var workLeftSwipe = function (e) {
+        swipeGo('left')
+      }
+      var workRightSwipe = function (e) {
+        swipeGo('right')
+      }
+      var swipeGo = function (swipe) {
+        var dayActive = $('.work .stages .stages__list .stages__item.active')
+        var dayActiveIndex = dayActive.index()
+        var stepActive = $('.work .tabs-content.active .all-wrap .days-content').eq(dayActiveIndex).find('.steps .steps__item.active')
+        var dayPrev = dayActive.prev('.stages__item')
+        var dayNext = dayActive.next('.stages__item')
+        var stepPrev = stepActive.prev()
+        var stepNext = stepActive.next()
+        if (swipe === 'left') {
+          if (stepNext.length) {
+            stepNext.click()
+          } else if (dayNext.length) {
+            dayNext.click()
+          }
+        } else if (swipe === 'right') {
+          if (stepPrev.length) {
+            stepPrev.click()
+          } else if (dayPrev.length) {
+            dayPrev.click()
+          }
+        }
+      }
       $('.tabs-content').swipe({
         swipeLeft: workLeftSwipe,
         swipeRight: workRightSwipe,
         threshold: 75
       })
     }
-    function workLeftSwipe (e) {
-      swipeGo('left')
-    }
-    function workRightSwipe (e) {
-      swipeGo('right')
-    }
-
-    function swipeGo (swipe) {
-      var dayActive = $('.work .stages .stages__list .stages__item.active')
-      var dayActiveIndex = dayActive.index()
-      var stepActive = $('.work .tabs-content.active .all-wrap .days-content').eq(dayActiveIndex).find('.steps .steps__item.active')
-      var dayPrev = dayActive.prev('.stages__item')
-      var dayNext = dayActive.next('.stages__item')
-      var stepPrev = stepActive.prev()
-      var stepNext = stepActive.next()
-      if (swipe === 'left') {
-        if (stepNext.length) {
-          stepNext.click()
-        } else if (dayNext.length) {
-          dayNext.click()
-        }
-      } else if (swipe === 'right') {
-        if (stepPrev.length) {
-          stepPrev.click()
-        } else if (dayPrev.length) {
-          dayPrev.click()
-        }
-      }
-    }
-
     $('.way__item.last').hover(
       function () {
         if ($('.way__link.last').hasClass('none') === false) {
