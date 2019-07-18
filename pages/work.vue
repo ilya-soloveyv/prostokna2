@@ -216,11 +216,122 @@
 </template>
 
 <script>
-// import $ from 'jquery'
+import $ from 'jquery'
 export default {
   mounted () {
-    console.log('ddd')
-    // $('.work').css({background: 'red'})
+    $('.work-users li').on('click', function () {
+      $(this)
+        .addClass('active').siblings().removeClass('active')
+        .closest('div.work-tabs').find('div.tabs-content').removeClass('active').eq($(this).index()).addClass('active')
+
+      $('.bg').css('transform', 'translate(145%,-50%)')
+
+      $('.stages__list .stages__item:first-child').addClass('active').siblings().removeClass('active')
+
+      $('.all-wrap').find('.days-content:first').addClass('active').siblings().removeClass('active')
+
+      if ($(window).width() <= '576') {
+        $(this).removeClass('active').siblings().addClass('active').closest('div.work-tabs').find('div.tabs-content').addClass('active').eq($(this).index()).removeClass('active')
+      }
+    })
+
+    $('.stages__list .stages__item').on('click', function () {
+      $(this).addClass('active').siblings().removeClass('active')
+        .closest('div.tabs-content').find('div.days-content').removeClass('active').eq($(this).index()).addClass('active')
+
+      var attr = $(this).attr('data-target')
+
+      if (attr === 1) {
+        $('.bg').css('transform', 'translate(145%,-50%)')
+      }
+      if (attr === 2) {
+        $('.bg').css('transform', 'translate(341.25%,-50%)')
+      }
+      if (attr === 3) {
+        $('.bg').css('transform', 'translate(537%,-50%)')
+      }
+      if (attr === 4) {
+        $('.bg').css('transform', 'translate(733.75%,-50%)')
+      }
+      if (attr === 5) {
+        $('.bg').css('transform', 'translate(930%,-50%)')
+      }
+    })
+    $('.steps .steps__item').on('click', function () {
+      $(this).addClass('active').siblings().removeClass('active')
+        .closest('div.days-content').find('div.step-content').removeClass('active').eq($(this).index()).addClass('active')
+    })
+    $('.way__link').on('click', function (e) {
+      // e.preventDefault()
+    })
+    if ($(window).width() <= '992') {
+      $('.tabs-content').swipe({
+        swipeLeft: workLeftSwipe,
+        swipeRight: workRightSwipe,
+        threshold: 75
+      })
+    }
+    function workLeftSwipe (e) {
+      swipeGo('left')
+    }
+    function workRightSwipe (e) {
+      swipeGo('right')
+    }
+
+    function swipeGo (swipe) {
+      var dayActive = $('.work .stages .stages__list .stages__item.active')
+      var dayActiveIndex = dayActive.index()
+      var stepActive = $('.work .tabs-content.active .all-wrap .days-content').eq(dayActiveIndex).find('.steps .steps__item.active')
+      var dayPrev = dayActive.prev('.stages__item')
+      var dayNext = dayActive.next('.stages__item')
+      var stepPrev = stepActive.prev()
+      var stepNext = stepActive.next()
+      if (swipe === 'left') {
+        if (stepNext.length) {
+          stepNext.click()
+        } else if (dayNext.length) {
+          dayNext.click()
+        }
+      } else if (swipe === 'right') {
+        if (stepPrev.length) {
+          stepPrev.click()
+        } else if (dayPrev.length) {
+          dayPrev.click()
+        }
+      }
+    }
+
+    $('.way__item.last').hover(
+      function () {
+        if ($('.way__link.last').hasClass('none') === false) {
+          setTimeout(function () {
+            $('.way__link.last').addClass('none')
+          }, 10)
+          setTimeout(function () {
+            $('.msn').addClass('active')
+          }, 250)
+          $.each($('.msn__link'), function (i, el) {
+            setTimeout(function () {
+              $(el).addClass('active')
+            }, 350 + (i * 100))
+          })
+        }
+      },
+      function () {
+        if ($('.way__link.last').hasClass('none') === true) {
+          $.each($('.msn__link'), function (i, el) {
+            setTimeout(function () {
+              $(el).removeClass('active')
+            }, 200 + (i * 100))
+          })
+          setTimeout(function () {
+            $('.msn').removeClass('active')
+          }, 300)
+          setTimeout(function () {
+            $('.way__link.last').removeClass('none')
+          }, 400)
+        }
+      })
   }
 }
 </script>
