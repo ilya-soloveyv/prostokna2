@@ -3,7 +3,10 @@
     <h1 class="title">
       USERS
     </h1>
-    <nuxt-link to="/contact">contact</nuxt-link>
+    <ul>
+        <li><nuxt-link to="/contact">contact</nuxt-link></li>
+        <li><nuxt-link to="/brands">Brands</nuxt-link></li>
+    </ul>
     <ul class="users">
       <li v-for="(user, index) in users" :key="index" class="user">
         <nuxt-link :to="{ name: 'id', params: { id: index }}">

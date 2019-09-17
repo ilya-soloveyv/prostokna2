@@ -1,0 +1,6 @@
+ul
+  li(v-for="brand in brands")
+    input(type="checkbox" :checked="brand.iActive" @change="toggle(brand)")
+    span(:class="{ done: brand.iActive }") {{ brand.sBrandTitle }}
+  li
+    input(placeholder="Введите новый бренд" @keyup.enter="addBrand")

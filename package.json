@@ -18,9 +18,11 @@
     "cross-env": "^5.0.1",
     "express": "^4.15.3",
     "jquery": "^3.4.1",
+    "mysql2": "^1.7.0",
     "nuxt": "^1.0.0-rc3",
     "nuxt-svg": "^0.1.5",
     "popper.js": "^1.15.0",
+    "sequelize": "^5.18.4",
     "source-map-support": "^0.4.15"
   },
   "devDependencies": {

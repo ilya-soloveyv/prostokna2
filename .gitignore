@@ -14,3 +14,4 @@ dist
 build
 
 package-lock.json
+/config/config.json
